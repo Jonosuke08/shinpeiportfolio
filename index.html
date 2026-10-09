@@ -1,0 +1,363 @@
+
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SHINPEI — Filmmaker</title>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background: #111;
+      color: #f5f5f5;
+      font-family: Arial, Helvetica, sans-serif;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 30px 5%;
+    }
+
+    .logo {
+      font-size: 20px;
+      font-weight: 700;
+      letter-spacing: -1px;
+    }
+
+    .header-info {
+      font-size: 11px;
+      letter-spacing: 1px;
+      color: #999;
+    }
+
+    .hero {
+      padding: 140px 5% 170px;
+    }
+
+    .hero h1 {
+      font-size: clamp(48px, 9vw, 130px);
+      font-weight: 500;
+      letter-spacing: -0.07em;
+      line-height: 0.95;
+    }
+
+    .hero p {
+      margin-top: 35px;
+      font-size: 13px;
+      color: #999;
+      line-height: 1.8;
+    }
+
+    .works {
+      padding: 0 5%;
+    }
+
+    .category {
+      margin-bottom: 110px;
+    }
+
+    .category-heading {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-top: 1px solid #555;
+      padding: 22px 0;
+    }
+
+    .category-heading h2 {
+      font-size: clamp(32px, 5vw, 65px);
+      font-weight: 500;
+      letter-spacing: -0.05em;
+    }
+
+    .category-heading span {
+      font-size: 13px;
+      color: #aaa;
+    }
+
+    .video-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 18px;
+    }
+
+    .video-card {
+      min-width: 0;
+    }
+
+    .video-wrap {
+      position: relative;
+      overflow: hidden;
+      background: #222;
+      aspect-ratio: 16 / 9;
+      cursor: pointer;
+    }
+
+    .video-wrap video {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.7s ease;
+    }
+
+    .video-wrap:hover video {
+      transform: scale(1.05);
+    }
+
+    .video-info {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 14px;
+      font-size: 12px;
+    }
+
+    .video-info span:last-child {
+      color: #888;
+    }
+
+    footer {
+      margin-top: 100px;
+      padding: 70px 5% 30px;
+      border-top: 1px solid #555;
+    }
+
+    .footer-label {
+      font-size: 12px;
+      color: #999;
+      margin-bottom: 25px;
+    }
+
+    .contact-link {
+      display: inline-block;
+      font-size: clamp(30px, 6vw, 80px);
+      letter-spacing: -0.05em;
+      border-bottom: 1px solid #777;
+      padding-bottom: 10px;
+      transition: opacity 0.3s;
+      overflow-wrap: anywhere;
+    }
+
+    .contact-link:hover {
+      opacity: 0.5;
+    }
+
+    .footer-bottom {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 110px;
+      font-size: 11px;
+      color: #777;
+    }
+
+    @media (max-width: 700px) {
+      header {
+        padding: 24px 5%;
+      }
+
+      .header-info {
+        font-size: 9px;
+      }
+
+      .hero {
+        padding: 120px 5% 130px;
+      }
+
+      .video-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .category {
+        margin-bottom: 75px;
+      }
+
+      .footer-bottom {
+        margin-top: 80px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <header>
+    <a href="#" class="logo">SHINPEI.</a>
+    <div class="header-info">
+      FILMMAKER / VISUAL ARTIST
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <h1>Visuals<br>that speak.</h1>
+      <p>
+        Independent filmmaker & visual artist.<br>
+        Creating moving images based in Japan.
+      </p>
+    </section>
+
+    <section class="works" id="works">
+
+      <!-- ART -->
+      <div class="category">
+        <div class="category-heading">
+          <h2>ART</h2>
+          <span>01 / 03</span>
+        </div>
+
+        <div class="video-grid">
+          <div class="video-card">
+            <div class="video-wrap">
+              <video autoplay muted loop playsinline
+                src="art01.mp4"></video>
+            </div>
+            <div class="video-info">
+              <span>ART PROJECT 01</span>
+              <span>2026</span>
+            </div>
+          </div>
+
+          <div class="video-card">
+            <div class="video-wrap">
+              <video autoplay muted loop playsinline
+                src="art02.mp4"></video>
+            </div>
+            <div class="video-info">
+              <span>ART PROJECT 02</span>
+              <span>2026</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- MV -->
+      <div class="category">
+        <div class="category-heading">
+          <h2>MV</h2>
+          <span>02 / 03</span>
+        </div>
+
+        <div class="video-grid">
+          <div class="video-card">
+            <div class="video-wrap">
+              <video autoplay muted loop playsinline
+                src="mv01.mp4"></video>
+            </div>
+            <div class="video-info">
+              <span>MUSIC VIDEO 01</span>
+              <span>2026</span>
+            </div>
+          </div>
+
+          <div class="video-card">
+            <div class="video-wrap">
+              <video autoplay muted loop playsinline
+                src="mv02.mp4"></video>
+            </div>
+            <div class="video-info">
+              <span>MUSIC VIDEO 02</span>
+              <span>2026</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- FASHION -->
+      <div class="category">
+        <div class="category-heading">
+          <h2>FASHION</h2>
+          <span>03 / 03</span>
+        </div>
+
+        <div class="video-grid">
+          <div class="video-card">
+            <div class="video-wrap">
+              <video autoplay muted loop playsinline
+                src="fasion01.mp4"></video>
+            </div>
+            <div class="video-info">
+              <span>FASHION FILM 01</span>
+              <span>2026</span>
+            </div>
+          </div>
+
+          <div class="video-card">
+            <div class="video-wrap">
+              <video autoplay muted loop playsinline
+                src="fasion02.mp4"></video>
+            </div>
+            <div class="video-info">
+              <span>FASHION FILM 02</span>
+              <span>2026</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </section>
+  </main>
+
+  <footer>
+    <p class="footer-label">
+      HAVE A PROJECT IN MIND?
+    </p>
+
+    <a class="contact-link"
+       href="shinpeiiwatani21@gmail.com">
+      Get in touch ↗
+    </a>
+
+    <div class="footer-bottom">
+      <span>© 2026 SHINPEI</span>
+      <a href="https://www.instagram.com/shinpei369/?hl=ja"
+         target="_blank"
+         rel="noopener noreferrer">
+        INSTAGRAM ↗
+      </a>
+    </div>
+  </footer>
+
+  <script>
+    // 画面外の動画は停止して負荷を軽減
+    const videos = document.querySelectorAll("video");
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          const video = entry.target;
+
+          if (entry.isIntersecting) {
+            video.play().catch(() => {});
+          } else {
+            video.pause();
+          }
+        });
+      },
+      { threshold: 0.1 }
+    );
+
+    videos.forEach((video) => {
+      observer.observe(video);
+    });
+  </script>
+
+</body>
+</html>
