@@ -1,6 +1,6 @@
-
 <!DOCTYPE html>
 <html lang="ja">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -95,7 +95,7 @@
 
     .video-grid {
       display: grid;
-      grid-template-columns: repeat(2, 1fr);
+      grid-template-columns: repeat(2, minmax(0, 1fr));
       gap: 18px;
     }
 
@@ -103,8 +103,10 @@
       min-width: 0;
     }
 
+    /* 動画リンク */
     .video-wrap {
       position: relative;
+      display: block;
       overflow: hidden;
       background: #222;
       aspect-ratio: 16 / 9;
@@ -116,11 +118,38 @@
       height: 100%;
       object-fit: cover;
       display: block;
+      pointer-events: none;
       transition: transform 0.7s ease;
     }
 
     .video-wrap:hover video {
       transform: scale(1.05);
+    }
+
+    .video-wrap:focus-visible {
+      outline: 2px solid #fff;
+      outline-offset: 4px;
+    }
+
+    .video-wrap::after {
+      content: "VIEW FILM ↗";
+      position: absolute;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: rgba(0, 0, 0, 0.35);
+      color: #fff;
+      font-size: 13px;
+      letter-spacing: 2px;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+      pointer-events: none;
+    }
+
+    .video-wrap:hover::after,
+    .video-wrap:focus-visible::after {
+      opacity: 1;
     }
 
     .video-info {
@@ -193,6 +222,18 @@
         margin-top: 80px;
       }
     }
+
+    @media (prefers-reduced-motion: reduce) {
+      html {
+        scroll-behavior: auto;
+      }
+
+      .video-wrap video,
+      .video-wrap::after,
+      .contact-link {
+        transition: none;
+      }
+    }
   </style>
 </head>
 
@@ -219,16 +260,17 @@
       <!-- ART -->
       <div class="category">
         <div class="category-heading">
-          <h2>ART</h2>
+          <h2>ART/REELS</h2>
           <span>01 / 03</span>
         </div>
 
         <div class="video-grid">
+
           <div class="video-card">
-            <div class="video-wrap">
-              <video autoplay muted loop playsinline
-                src="art01.mp4"></video>
-            </div>
+            <a class="video-wrap" href="https://www.instagram.com/p/DP0bZ1zjP6K/" target="_blank"
+              rel="noopener noreferrer" aria-label="ART PROJECT 01 を見る">
+              <video autoplay muted loop playsinline src="art01.mp4"></video>
+            </a>
             <div class="video-info">
               <span>ART PROJECT 01</span>
               <span>2026</span>
@@ -236,15 +278,13 @@
           </div>
 
           <div class="video-card">
-            <div class="video-wrap">
-              <video autoplay muted loop playsinline
-                src="art02.mp4"></video>
-            </div>
+            <video autoplay muted loop playsinline src="art02.mp4"></video>
             <div class="video-info">
               <span>ART PROJECT 02</span>
               <span>2026</span>
             </div>
           </div>
+
         </div>
       </div>
 
@@ -256,11 +296,12 @@
         </div>
 
         <div class="video-grid">
+
           <div class="video-card">
-            <div class="video-wrap">
-              <video autoplay muted loop playsinline
-                src="mv01.mp4"></video>
-            </div>
+            <a class="video-wrap" href="https://www.youtube.com/watch?v=lmf5YD5Iacg" target="_blank"
+              rel="noopener noreferrer" aria-label="MUSIC VIDEO 01 を見る">
+              <video autoplay muted loop playsinline src="mv01.mp4"></video>
+            </a>
             <div class="video-info">
               <span>MUSIC VIDEO 01</span>
               <span>2026</span>
@@ -268,15 +309,16 @@
           </div>
 
           <div class="video-card">
-            <div class="video-wrap">
-              <video autoplay muted loop playsinline
-                src="mv02.mp4"></video>
-            </div>
+            <a class="video-wrap" href="https://www.youtube.com/watch?v=Zc-XG23Wvq4" target="_blank"
+              rel="noopener noreferrer" aria-label="MUSIC VIDEO 02 を見る">
+              <video autoplay muted loop playsinline src="mv02.mp4"></video>
+            </a>
             <div class="video-info">
               <span>MUSIC VIDEO 02</span>
               <span>2026</span>
             </div>
           </div>
+
         </div>
       </div>
 
@@ -288,11 +330,12 @@
         </div>
 
         <div class="video-grid">
+
           <div class="video-card">
-            <div class="video-wrap">
-              <video autoplay muted loop playsinline
-                src="fasion01.mp4"></video>
-            </div>
+            <a class="video-wrap" href="https://www.instagram.com/reels/DVoDGU4kae1/" target="_blank"
+              rel="noopener noreferrer" aria-label="FASHION FILM 01 を見る">
+              <video autoplay muted loop playsinline src="fasion01.mp4"></video>
+            </a>
             <div class="video-info">
               <span>FASHION FILM 01</span>
               <span>2026</span>
@@ -300,15 +343,16 @@
           </div>
 
           <div class="video-card">
-            <div class="video-wrap">
-              <video autoplay muted loop playsinline
-                src="fasion02.mp4"></video>
-            </div>
+            <a class="video-wrap" href="https://www.instagram.com/reel/DeT7D9-B7UT/" target="_blank"
+              rel="noopener noreferrer" aria-label="FASHION FILM 02 を見る">
+              <video autoplay muted loop playsinline src="fasion02.mp4"></video>
+            </a>
             <div class="video-info">
               <span>FASHION FILM 02</span>
               <span>2026</span>
             </div>
           </div>
+
         </div>
       </div>
 
@@ -320,23 +364,22 @@
       HAVE A PROJECT IN MIND?
     </p>
 
-    <a class="contact-link"
-       href="shinpeiiwatani21@gmail.com">
-      Get in touch ↗
+    <!-- メール作成画面を開く -->
+    <a class="contact-link" href="mailto:shinpeiiwatani21@gmail.com">
+      Contact ↗
     </a>
 
     <div class="footer-bottom">
       <span>© 2026 SHINPEI</span>
-      <a href="https://www.instagram.com/shinpei369/?hl=ja"
-         target="_blank"
-         rel="noopener noreferrer">
+
+      <a href="https://www.instagram.com/shinpei369/?hl=ja" target="_blank" rel="noopener noreferrer">
         INSTAGRAM ↗
       </a>
     </div>
   </footer>
 
   <script>
-    // 画面外の動画は停止して負荷を軽減
+    // 画面外の動画は一時停止
     const videos = document.querySelectorAll("video");
 
     const observer = new IntersectionObserver(
@@ -345,7 +388,7 @@
           const video = entry.target;
 
           if (entry.isIntersecting) {
-            video.play().catch(() => {});
+            video.play().catch(() => { });
           } else {
             video.pause();
           }
@@ -360,4 +403,5 @@
   </script>
 
 </body>
+
 </html>
